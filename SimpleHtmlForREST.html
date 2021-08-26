@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Ajax Service and promise</title>
+    <style>
+        .body {
+            margin: auto;
+        }
+
+        div {
+            border: 1px solid black;
+            background-color: lightblue;
+            padding: 50px;
+            width: 80%;
+            font-size: xx-large;
+            margin-top: 50px;
+        }
+    </style>
+    <script src="../AJAX/httpService.js"></script>
+</head>
+
+<body>
+    <h1>The test service Result</h1>
+    <div id="get_service"></div>
+    <div id="delete_service"></div>
+    <div id="post_service"></div>
+    <script>
+        // calling promise call for GET method
+        const getEle=document.querySelector("#get_service");
+        const getURL = "http://127.0.0.1:3000/employees/1";
+        makePromiseCall("GET", getURL, true).then(responseText => {
+            var temp=responseText;
+            getEle.textContent="Get Data:"+temp;
+        }).catch(error=>{getEle.textContent="Error"+JSON.stringify(error)});
+
+        // calling promise call for delete method
+        const deleteEle=document.querySelector("#delete_service");
+        const deleteURL = "http://127.0.0.1:3000/employees/14";
+        makePromiseCall("DELETE", deleteURL, false).then(responseText => {
+            deleteEle.textContent="Delete Data :"+responseText;
+        }).catch(error=>{deleteEle.textContent="Error"+JSON.stringify(error)});
+
+        // calling the promise call for post method
+        const postEle=document.querySelector("#post_service");
+        const postURL = "http://127.0.0.1:3000/employees";
+        const empData = { "name": "Harry", "salary": 65001 };
+        makePromiseCall("POST", postURL, true, empData).then(responseText => {
+            postEle.textContent="POST Data :"+responseText;
+        }).catch(error=>{postEle.textContent="Error"+JSON.stringify(error)});
+    </script>
+</body>
+
+</html>

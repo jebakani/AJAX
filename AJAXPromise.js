@@ -32,7 +32,7 @@ makePromiseCall("GET", getURL, true).then(responseText => {
 }).catch(error => console.log("GET Error status:" + JSON.stringify(error)));
 
 // calling promise call for delete method
-const deleteURL = "http://127.0.0.1:3000/employees/11";
+const deleteURL = "http://127.0.0.1:3000/employees/13";
 makePromiseCall("DELETE", deleteURL, true).then(responseText => {
     console.log("get deleted data:" + responseText)
 }).catch(error => console.log("Delete Error status:" + JSON.stringify(error)));
