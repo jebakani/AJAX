@@ -1,19 +1,19 @@
-// // UC1-Asynchronous example
-// {
-// function showTime()
-// {
-//     const date=new Date();
-//     return date.getHours()+"Hrs:"+date.getMinutes()+"Min:"+date.getSeconds()+"sec:";
-// }
-// function ShowSessionExpire()
-// {
-//     console.log("Activity B: Your session expired at "+showTime());
-// }
-// console.log("Activity A : triggering Activity  :"+showTime());
-// //it call the function after 5sec
-// setTimeout(ShowSessionExpire,5000);
-// console.log("Activity A triggered Activity B "+showTime()+" will be after 5 sec");
-// }
+// UC1-Asynchronous example
+{
+function showTime()
+{
+    const date=new Date();
+    return date.getHours()+"Hrs:"+date.getMinutes()+"Min:"+date.getSeconds()+"sec:";
+}
+function ShowSessionExpire()
+{
+    console.log("Activity B: Your session expired at "+showTime());
+}
+console.log("Activity A : triggering Activity  :"+showTime());
+//it call the function after 5sec
+setTimeout(ShowSessionExpire,5000);
+console.log("Activity A triggered Activity B "+showTime()+" will be after 5 sec");
+}
 // UC2-AJAX Call back function
 let XMLHttpRequest=require("xmlhttprequest").XMLHttpRequest;
 // call back function
@@ -38,13 +38,13 @@ function makeAJAXCall(methodType,url,callback,async=true,data=null)
     if(data)
     {
         console.log(JSON.stringify(data));
-        xhr.setRequestHeader("Content-Type","applicaton/json");
+        xhr.setRequestHeader('Content-Type','application/json');
         xhr.send(JSON.stringify(data));
     }
     else xhr.send();
     console.log(methodType+" request sent to server");
 }
-// function to get the data from the server
+function to get the data from the server
 const getURL="http://127.0.0.1:3000/employees/1";
 function getUserDetails(data)
 {
@@ -60,7 +60,7 @@ function deleteUserDetails(data)
 makeAJAXCall("DELETE",deleteURL,deleteUserDetails);
 
 const postURL="http://127.0.0.1:3000/employees";
-const empData={"name":"Raj","salary":6000};
+const empData={ "name": "kings", "salary": 65000};
 function postUserDetails(data)
 {
     console.log("user Data Added:"+data);
