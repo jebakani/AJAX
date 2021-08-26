@@ -44,7 +44,7 @@ function makeAJAXCall(methodType,url,callback,async=true,data=null)
     else xhr.send();
     console.log(methodType+" request sent to server");
 }
-function to get the data from the server
+// function to get the data from the server
 const getURL="http://127.0.0.1:3000/employees/1";
 function getUserDetails(data)
 {
