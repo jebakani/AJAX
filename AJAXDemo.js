@@ -15,3 +15,4 @@ setTimeout(ShowSessionExpire,5000);
 console.log("Activity A triggered Activity B "+showTime()+" will be after 5 sec");
 }
 
+
